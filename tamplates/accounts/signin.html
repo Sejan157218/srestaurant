@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'singnup/fonts/material-icon/css/material-design-iconic-font.min.css'%}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'singnup/css/style.css'%}">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="containers">
+            <div class="signup-content">
+                <form method="POST" id="signup-form" class="signup-form">
+                {% csrf_token %}
+                    <h2>Sign In </h2>
+                    <p class="desc">to get discount <span>“Sign In”</span></p>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="username" id="name" placeholder="User name"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="password" id="password" placeholder="Password"/>
+                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" id="submit" class="form-submit submit" value="Sign in"/>
+                        
+                        <p>Don't have an account? <a href="{% url 'signup' %}">Sign UP</a></p>
+                    </div>
+                    {% for message in messages %}
+                        <p id="messages">{{ message }}</p>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'singnup/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'singnup/js/main.js'%}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->

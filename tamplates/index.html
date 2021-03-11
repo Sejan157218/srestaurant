@@ -1,0 +1,186 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title  %}Spicyo{% endblock %}
+{% block body %}
+    <!-- start slider section -->
+    <div class="slider_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div id="main_slider" class="carousel vert slide" data-ride="carousel" data-interval="5000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="slider_cont">
+                                                <h3>{{slide.0.title1}}<br>{{slide.0.title2}}</h3>
+                                                <p>{{slide.0.desc}}</p>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="slider_image full text_align_center">
+                                                <img class="img-responsive" src="/media/{{slide.0.img}}" alt="#" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% for i in slide %}
+                                <div class="carousel-item">
+                                    <div class="row">
+                                    
+                                        <div class="col-md-5">
+                                            <div class="slider_cont">
+                                                <h3>{{i.title1}}<br>{{i.title1}}</h3>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 full text_align_center">
+                                            <div class="slider_image">
+                                                <img class="img-responsive" src="/media/{{i.img}}" alt="#" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            
+                            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                                <i class="fa fa-angle-up"></i>
+                            </a>
+                            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end slider section -->
+
+    <!-- section -->
+    <section class="resip_section">
+        <div class="container">
+            <div class="row">
+         <div class="col-md-12">
+       <div class="ourheading">
+    <h2>Our Recipes</h2>
+  </div>
+</div>    
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="owl-carousel owl-theme">
+                {%for recipe in recipe%}
+                <div class="item">
+                    <div class="product_blog_img">
+                        <img src="/media/{{recipe.img}}" alt="#" />
+                    </div>
+                    <div class="product_blog_cont">
+                        <h3>{{recipe.name}}</h3>
+                        <h4><span class="theme_color">৳ </span>{{recipe.price}}</h4>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+<div class="bg_bg">
+<!-- about -->
+<div class="about">
+    <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+             <div class="title">
+                <i><img src="{% static 'images/title.png'%}" alt="#"/></i>
+                <h2>{{about.0.title1}}</h2>
+                <span>{{about.0.desc1}}
+
+                </span>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+             <div class="about_box">
+                 <h3>{{about.0.title2}}</h3>
+                 <p>{{about.0.desc2}}</p>
+                 
+             </div>
+         </div>
+          <div class="col-xl-5 col-lg-5 col-md-10 col-sm-12 about_img_boxpdnt">
+             <div class="about_img">
+                 <figure><img src="/media/{{about.0.img}}" alt="#/"></figure>
+             </div>
+         </div>      
+       </div> 
+    </div>
+</div>
+<!-- end about -->
+
+<!-- blog -->
+<div class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <i><img src="{% static 'images/title.png'%}" alt="#"/></i>
+          <h2>{{blocktitle.0.blocktitle}}</h2>
+          <span>{{blocktitle.0.blockdesc}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+    {% for blog in blog %}
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
+        <div class="blog_box">
+          <div class="blog_img_box">
+            <figure><img src="/media/{{blog.img}}" alt="#"/>
+             <span>{{blog.date}}</span>
+            </figure>
+          </div>
+          <h3>{{blog.title}}</h3>
+          <p>{{blog.desc}} </p>
+        </div>
+      </div>
+      {% endfor %}
+       
+    </div>
+  </div>
+</div>
+<!-- end blog -->
+
+<!-- Our Client -->
+<div class="Client">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <i><img src="{% static 'images/title.png'%}" alt="#"/></i>
+          <h2>{{client.0.title}}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+         <div class="Client_box">
+           <img src="/media/{{client.0.img}}" alt="#"/>
+           <h3>{{client.0.name}}</h3>
+           <p>{{client.0.desc}}</p>
+           <i><img src="{% static 'images/client_icon.png'%}" alt="#"/></i>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>  
+<!-- end Our Client -->
+</div>
+</body>
+{% endblock%}

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'singnup/fonts/material-icon/css/material-design-iconic-font.min.css'%}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'singnup/css/style.css'%}">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="containers">
+            <div class="signup-content">
+                <form method="POST" id="signup-form" class="signup-form">
+                    {% csrf_token %}
+                    <h2>Sign up </h2>
+                    <p class="desc">to get discount <span>“Sign UP”</span></p>
+                    <div class="form-group">
+                        {{form.username}}
+                    </div>
+                    <div class="form-group">
+                        {{form.email}}
+                    </div>
+                    <div class="form-group">
+                        {{form.password1}}
+                        
+                    </div>
+                    <div class="form-group">
+                        {{form.password2}}
+                        
+                    </div>
+                    {{form.errors}}
+                    <div class="form-group">
+                        <input type="submit" id="submit" class="form-submit submit" value="Sign up"/>
+                        <p>Already have an account? <a href="{% url 'signin' %}">Sign In</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'singnup/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'singnup/js/main.js'%}"></script>
+    <script>
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder='User Name';
+        form_fields[2].placeholder='Email';
+        form_fields[3].placeholder='Enter Password';
+        form_fields[4].placeholder='Re-enter Password';
+        
+        for (var field in form_fields){
+            form_fields[field].className+= 'form-control'
+        }
+
+    </script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+

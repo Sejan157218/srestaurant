@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title  %}Our Blog{% endblock %}
+{% block body %}
+    <!-- end header -->
+<div class="yellow_bg">
+   <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                     <h2>{{block.0.blocktitle}}</h2>
+                    
+                  </div>
+               </div>
+            </div>
+          </div>
+</div>
+
+<!-- blog -->
+<div class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <i><img src="{% static 'images/title.png'%}" alt="#"/></i>
+          
+          <span>{{blocktitle.0.blockdesc}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    {% for blog in blog %}
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
+        <div class="blog_box">
+          <div class="blog_img_box">
+            <figure><img src="/media/{{blog.img}}" alt="#"/>
+             <span>{{blog.date}}</span>
+            </figure>
+          </div>
+          <h3>{{blog.title}}</h3>
+          <p>{{blog.desc}} </p>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+<!-- end blog -->
+
+
+    <!-- footer -->
+
+
+{% endblock%}
